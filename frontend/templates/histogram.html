@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Histogram Laboratuvarı</title>
+
+    <link rel="stylesheet" href="../css/histogram.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- Başlık -->
+
+        <header class="page-header">
+
+            <span class="eyebrow">
+                VERİ GÖRSELLEŞTİRME LABORATUVARI
+            </span>
+
+            <h1>Histogram Laboratuvarı</h1>
+
+            <p>
+                Sayısal verilerin dağılımını inceleyin
+                ve istatistiksel özelliklerini keşfedin.
+            </p>
+
+        </header>
+
+
+        <!-- Veri Seti -->
+
+        <section class="panel">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">01</span>
+                    <h2>Veri Seti</h2>
+                </div>
+
+                <p>
+                    Virgülle ayırarak sayısal değerler girin.
+                </p>
+
+            </div>
+
+            <label for="data-input">
+                Verileriniz
+            </label>
+
+            <input
+                type="text"
+                id="data-input"
+                value="10, 20, 20, 30, 40, 50, 60, 70, 80"
+            >
+
+        </section>
+
+
+        <!-- Histogram Ayarları -->
+
+        <section class="panel">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">02</span>
+                    <h2>Histogram Ayarları</h2>
+                </div>
+
+                <p>
+                    Verilerin hangi aralıklara bölüneceğini ayarlayın.
+                </p>
+
+            </div>
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <label for="bins-input">
+                        Bin Sayısı
+                    </label>
+
+                    <span>
+                        Verilerin gruplanacağı aralıkların
+                        sayısını belirler.
+                    </span>
+
+                </div>
+
+                <div class="slider-container">
+
+                    <input
+                        type="range"
+                        id="bins-input"
+                        min="1"
+                        max="30"
+                        value="5"
+                    >
+
+                    <span id="bins-value">5</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Güncelleme -->
+
+        <div class="action-container">
+
+            <button id="update-button">
+                Grafiği Güncelle
+            </button>
+
+        </div>
+
+
+        <!-- Histogram -->
+
+        <section class="panel chart-panel">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">03</span>
+                    <h2>Histogram</h2>
+                </div>
+
+                <p>
+                    Veri dağılımının görsel gösterimi.
+                </p>
+
+            </div>
+
+            <div id="histogram-container"></div>
+
+        </section>
+
+
+        <!-- Açıklama -->
+
+        <section class="info-panel">
+
+            <div class="info-header">
+
+                <span class="info-icon">
+                    ?
+                </span>
+
+                <div>
+
+                    <h2>Histogram Nedir?</h2>
+
+                    <p>
+                        Sayısal verilerin dağılımını
+                        nasıl yorumlayacağınızı öğrenin.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-content">
+
+                <div class="info-block">
+
+                    <h3>Ne gösterir?</h3>
+
+                    <p>
+                        Histogram, sayısal verilerin
+                        <strong>bin</strong> adı verilen
+                        aralıklar içerisindeki dağılımını gösterir.
+                    </p>
+
+                </div>
+
+
+                <div class="info-block">
+
+                    <h3>Nasıl okunur?</h3>
+
+                    <ul>
+
+                        <li>
+                            <strong>X ekseni:</strong>
+                            Veri değerlerinin aralıklarını gösterir.
+                        </li>
+
+                        <li>
+                            <strong>Y ekseni:</strong>
+                            Her aralıkta bulunan gözlem sayısını gösterir.
+                        </li>
+
+                        <li>
+                            <strong>Sütun yüksekliği:</strong>
+                            O aralıktaki gözlem frekansını gösterir.
+                        </li>
+
+                        <li>
+                            <strong>Bin sayısı:</strong>
+                            Verilerin ne kadar ayrıntılı
+                            gruplandırılacağını belirler.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="tip-box">
+
+                    <strong>İpucu</strong>
+
+                    <p>
+                        Bin sayısını değiştirmeyi deneyin.
+                        Çok az bin kullanmak önemli dağılım
+                        özelliklerini gizleyebilir. Çok fazla bin
+                        kullanmak ise grafiği gereğinden fazla
+                        karmaşık hale getirebilir.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- İstatistikler -->
+
+        <section class="panel">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">04</span>
+                    <h2>İstatistikler</h2>
+                </div>
+
+                <p>
+                    Veri setinizi tanımlayan temel istatistiksel ölçüler.
+                </p>
+
+            </div>
+
+
+            <div id="statistics-container">
+
+
+                <!-- Sıralanmış Veri -->
+
+                <div class="sorted-data-card">
+
+                    <h3>Sıralanmış Veri</h3>
+
+                    <span id="sorted-data-value">-</span>
+
+                </div>
+
+
+                <!-- Merkezi Eğilim -->
+
+                <div class="stat-card">
+
+                    <h3>Aritmetik Ortalama</h3>
+
+                    <span id="mean-value">-</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Medyan</h3>
+
+                    <span id="median-value">-</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Mod</h3>
+
+                    <span id="mode-value">-</span>
+
+                </div>
+
+
+                <!-- Temel Aralık Ölçüleri -->
+
+                <div class="stat-card">
+
+                    <h3>Minimum</h3>
+
+                    <span id="minimum-value">-</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Maksimum</h3>
+
+                    <span id="maximum-value">-</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Aralık</h3>
+
+                    <span id="range-value">-</span>
+
+                </div>
+
+
+                <!-- Çeyrekler -->
+
+                <div class="stat-card">
+
+                    <h3>Q1 — Birinci Çeyrek</h3>
+
+                    <span id="q1-value">-</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Q3 — Üçüncü Çeyrek</h3>
+
+                    <span id="q3-value">-</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>IQR — Çeyrekler Açıklığı</h3>
+
+                    <span id="iqr-value">-</span>
+
+                </div>
+
+
+                <!-- Dağılım -->
+
+                <div class="stat-card">
+
+                    <h3>Varyans</h3>
+
+                    <span id="variance-value">-</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Standart Sapma</h3>
+
+                    <span id="std-value">-</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Aykırı Değerler</h3>
+
+                    <span id="outliers-value">-</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../js/histogram.js"></script>
+
+</body>
+
+</html>

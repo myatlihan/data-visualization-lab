@@ -30,7 +30,7 @@ def mean(data):
 
     count = len(data)
     
-    return total / count
+    return round(total / count, 2)
 
 
 def median(data):
@@ -222,7 +222,7 @@ def variance(data):
         sum_data += value
 
     
-    return sum_data / len(squared_differece)
+    return round(sum_data / len(squared_differece), 2)
 
 
 def standard_deviation(data):
@@ -238,7 +238,7 @@ def standard_deviation(data):
 
     validate_data(data)
 
-    return variance(data) ** 0.5
+    return round(variance(data) ** 0.5, 2)
 
 
 

@@ -1,0 +1,593 @@
+/* =========================
+   Genel Sayfa
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 50px 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   Header
+   ========================= */
+
+.page-header {
+    margin-bottom: 40px;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    color: #6b7280;
+}
+
+.page-header h1 {
+    margin: 0 0 12px 0;
+
+    font-size: 42px;
+    line-height: 1.1;
+
+    color: #111827;
+}
+
+.page-header p {
+    max-width: 650px;
+    margin: 0;
+
+    font-size: 17px;
+    color: #6b7280;
+}
+
+
+/* =========================
+   Genel Panel
+   ========================= */
+
+.panel {
+    margin-bottom: 24px;
+    padding: 28px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================
+   Section Header
+   ========================= */
+
+.section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 24px;
+}
+
+.section-header > div {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 8px;
+
+    background-color: #111827;
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.section-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+    color: #111827;
+}
+
+.section-header p {
+    max-width: 420px;
+
+    margin: 4px 0 0 0;
+
+    font-size: 14px;
+    color: #6b7280;
+}
+
+
+/* =========================
+   Input
+   ========================= */
+
+label {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #374151;
+}
+
+input[type="text"] {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+
+    background-color: #ffffff;
+
+    font-size: 16px;
+    color: #111827;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #111827;
+
+    box-shadow:
+        0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+
+/* =========================
+   Histogram Settings
+   ========================= */
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.setting-info {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 250px;
+}
+
+.setting-info label {
+    margin-bottom: 3px;
+}
+
+.setting-info span {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+
+/* =========================
+   Slider
+   ========================= */
+
+.slider-container {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    flex: 1;
+    max-width: 500px;
+}
+
+input[type="range"] {
+    width: 100%;
+
+    cursor: pointer;
+}
+
+#bins-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 44px;
+    height: 36px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background-color: #f9fafb;
+
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+}
+
+
+/* =========================
+   Action Button
+   ========================= */
+
+.action-container {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-bottom: 24px;
+}
+
+#update-button {
+    padding: 13px 22px;
+
+    border: none;
+    border-radius: 9px;
+
+    background-color: #111827;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#update-button:hover {
+    background-color: #374151;
+
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, 0.12);
+
+    transform: translateY(-1px);
+}
+
+#update-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   Histogram
+   ========================= */
+
+.chart-panel {
+    overflow: hidden;
+}
+
+#histogram-container {
+    width: 100%;
+    min-height: 500px;
+}
+
+
+/* =========================
+   Bilgi Paneli
+   ========================= */
+
+.info-panel {
+    margin-bottom: 24px;
+    padding: 28px;
+
+    background-color: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.info-header {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+}
+
+.info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background-color: #111827;
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.info-header h2 {
+    margin: 0 0 4px 0;
+
+    font-size: 21px;
+    color: #111827;
+}
+
+.info-header p {
+    margin: 0;
+
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.info-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+}
+
+.info-block {
+    padding: 20px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.info-block h3 {
+    margin: 0 0 10px 0;
+
+    font-size: 16px;
+    color: #111827;
+}
+
+.info-block p {
+    margin: 0;
+
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.info-block ul {
+    margin: 0;
+    padding-left: 20px;
+
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.info-block li {
+    margin-bottom: 8px;
+}
+
+.tip-box {
+    grid-column: 1 / -1;
+
+    padding: 18px 20px;
+
+    border-left: 4px solid #111827;
+
+    background-color: #ffffff;
+}
+
+.tip-box strong {
+    color: #111827;
+}
+
+.tip-box p {
+    display: inline;
+
+    margin-left: 8px;
+
+    font-size: 14px;
+    color: #4b5563;
+}
+
+
+/* =========================
+   Statistics
+   ========================= */
+
+#statistics-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+
+/* =========================
+   Sorted Data
+   ========================= */
+
+.sorted-data-card {
+    grid-column: 1 / -1;
+
+    padding: 20px;
+
+    background-color: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.sorted-data-card h3 {
+    margin: 0 0 10px 0;
+
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.sorted-data-card span {
+    display: block;
+
+    word-break: break-word;
+
+    font-size: 15px;
+    line-height: 1.8;
+    color: #111827;
+}
+
+
+/* =========================
+   Statistic Cards
+   ========================= */
+
+.stat-card {
+    padding: 20px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card h3 {
+    margin: 0 0 10px 0;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #6b7280;
+}
+
+.stat-card span {
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 800px) {
+
+    body {
+        padding: 30px 16px;
+    }
+
+    .page-header h1 {
+        font-size: 34px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .setting-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .slider-container {
+        max-width: none;
+    }
+
+    .info-content {
+        grid-template-columns: 1fr;
+    }
+
+    .tip-box {
+        grid-column: auto;
+    }
+
+    #statistics-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .panel,
+    .info-panel {
+        padding: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 30px;
+    }
+
+    .page-header p {
+        font-size: 15px;
+    }
+
+    #statistics-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sorted-data-card {
+        grid-column: auto;
+    }
+
+    .action-container {
+        justify-content: stretch;
+    }
+
+    #update-button {
+        width: 100%;
+    }
+
+    #histogram-container {
+        min-height: 400px;
+    }
+}
